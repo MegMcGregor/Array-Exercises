@@ -7,20 +7,22 @@ const instructors = useInstructors();
 // It should accept one integer parameter named `cohort`
 // It should return an array of just the students who are in that cohort
 export const getStudentsInCohort = (cohort) => {
-    let studentsInCohort = useStudents().filter(student => student.cohort === cohort)
+    return students.filter(student => student.cohort === cohort)
 }
 
 // Export a function called getFullTimeStudents
 // It should not accept any parameters
 // It should return an array of only the full time students
 
-
+export const getFulltimeStudents = () => {
+   return students.filter(student => student.fullTime)
+}
 
 // Export a function called getStudentsByInstructorId
 // It should accept one integer parameter name `instructorId`
 // It should return an array of students with that instructor
 export const getStudentsByInstructorId = (instructorId) => {
-    let instructorsClass = useStudents().filter(student => student.instructorId === instructorId)
+    return students.filter(student => student.instructorId === instructorId)
 }
 
 // Export a function called getPolyglotStudents
@@ -28,13 +30,17 @@ export const getStudentsByInstructorId = (instructorId) => {
 // It should return an array of students who know as many (or more) languages than `languageCount`
 // Ex: If the number 2 is passed to the function, only the students who know 2 or more languages should be returned
 export const getPolyglotStudents = (languageCount) => {
-    let polyglotStudents = useStudents().filter(student => student.languages.length >= languageCount)
+    return students.filter(student => student.languages.length >= languageCount)
 }
+
 
 // Export a function called getAvailableInstructors
 // It should not accept any parameters
 // It should return an array of instructors that don't have any students
-export const getAvailableInstructors = ()
+export const getAvailableInstructors = () => { 
+    if (students.instructorId != instructors.id)
+    return instructors.filter(instructor => instructor.name)
+}
 
 // Export a function called getStudentsByLanguage
 // It should accept one string parameter named `language`
