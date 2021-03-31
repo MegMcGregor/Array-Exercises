@@ -47,7 +47,7 @@ export const getAvailableInstructors = () => {
 // It should return an array of students who know the given language
 // HINT: In addition to the `filter` method, you might also look up the `some` method
 export const getStudentsByLanguage = (language) => {
-    return students.filter.some(students => student.language === language)
+    return students.filter(students => student.language === language)
 }
 
 /******** ADVANCED CHALLENGE ********/
